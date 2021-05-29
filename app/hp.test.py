@@ -1,5 +1,5 @@
 from unittest import main, TestCase
-from lib import HashProvider
+from hp import HashProvider
 from hashlib import sha256
 
 

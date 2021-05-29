@@ -1,5 +1,5 @@
 from os import environ
-from lib import HashProvider
+from hp import HashProvider
 from hashlib import sha256
 from bottle import Bottle, run, request, response
 from redis import Redis
