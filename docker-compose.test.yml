@@ -1,0 +1,5 @@
+sut:
+  build: .
+  volumes:
+      - ./app:/opt
+  command: python lib.test.py
