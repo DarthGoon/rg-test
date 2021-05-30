@@ -161,7 +161,7 @@ spec:
                 configMapKeyRef:
                   key: REDIS_PORT
                   name: rg-test-api-config-iyff
-          image: gcr.io/sandbox-314159/github.com/darthgoon/rg-test
+          image: gcr.io/sandbox-314159/rg-test/api
           imagePullPolicy: IfNotPresent
           name: api-sha256-1
           resources:

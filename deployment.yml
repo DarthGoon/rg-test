@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: "api-sha256-1"
-        image: "gcr.io/sandbox-314159/rg-test/api@sha256:3031eb96819665f794ddce3f205e78ff7537efca69f8a9693de25bb24e7bda71"
+        image: "gcr.io/sandbox-314159/rg-test/api"
         env:
         - name: "HOST"
           valueFrom:
