@@ -14,5 +14,5 @@ spec:
   selector:
     app: "rg-test-api"
   type: "LoadBalancer"
-  loadBalancerIP: ""
+  loadBalancerIP: "34.75.71.160"
 
