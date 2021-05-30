@@ -1,256 +1,76 @@
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: "v1"
+kind: "ConfigMap"
 metadata:
-  annotations:
-    autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"}}]},"modified":true}'
-    deployment.kubernetes.io/revision: "5"
-    gcb-build-id: 9da2a342-8b46-4abb-b6f1-c5b20918f174
-    gcb-trigger-id: 3c9e90c1-c53f-4310-ab36-187237e434fe
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"autopilot.gke.io/resource-adjustment":"{\"input\":{\"containers\":[{}]},\"output\":{\"containers\":[{\"limits\":{\"cpu\":\"500m\",\"ephemeral-storage\":\"1Gi\",\"memory\":\"2Gi\"},\"requests\":{\"cpu\":\"500m\",\"ephemeral-storage\":\"1Gi\",\"memory\":\"2Gi\"}}]},\"modified\":true}","gcb-build-id":"9da2a342-8b46-4abb-b6f1-c5b20918f174","gcb-trigger-id":"3c9e90c1-c53f-4310-ab36-187237e434fe"},"labels":{"app":"rg-test-api","app.kubernetes.io/managed-by":"gcp-cloud-build-deploy","app.kubernetes.io/name":"rg-test-api","app.kubernetes.io/version":"32ae8fa85b0f41e246524eca2af1625246a20ee7"},"managedFields":[{"apiVersion":"apps/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:app":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{"f:matchLabels":{".":{},"f:app":{}}},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"api-sha256-1\"}":{".":{},"f:env":{".":{},"k:{\"name\":\"HOST\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:configMapKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"PORT\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:configMapKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"REDIS_HOST\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:configMapKeyRef":{".":{},"f:key":{},"f:name":{}}}},"k:{\"name\":\"REDIS_PORT\"}":{".":{},"f:name":{},"f:valueFrom":{".":{},"f:configMapKeyRef":{".":{},"f:key":{},"f:name":{}}}}},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}},"manager":"GoogleCloudConsole","operation":"Update","time":"2021-05-30T21:43:00Z"},{"apiVersion":"apps/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:availableReplicas":{},"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:readyReplicas":{},"f:replicas":{},"f:updatedReplicas":{}}},"manager":"kube-controller-manager","operation":"Update","time":"2021-05-30T21:44:44Z"}],"name":"rg-test-api","namespace":"default"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"rg-test-api"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"gcb-build-id":"9da2a342-8b46-4abb-b6f1-c5b20918f174","gcb-trigger-id":"3c9e90c1-c53f-4310-ab36-187237e434fe"},"labels":{"app":"rg-test-api","app.kubernetes.io/managed-by":"gcp-cloud-build-deploy","app.kubernetes.io/name":"rg-test-api","app.kubernetes.io/version":"32ae8fa85b0f41e246524eca2af1625246a20ee7"}},"spec":{"containers":[{"env":[{"name":"HOST","valueFrom":{"configMapKeyRef":{"key":"HOST","name":"rg-test-api-config-iyff"}}},{"name":"PORT","valueFrom":{"configMapKeyRef":{"key":"PORT","name":"rg-test-api-config-iyff"}}},{"name":"REDIS_HOST","valueFrom":{"configMapKeyRef":{"key":"REDIS_HOST","name":"rg-test-api-config-iyff"}}},{"name":"REDIS_PORT","valueFrom":{"configMapKeyRef":{"key":"REDIS_PORT","name":"rg-test-api-config-iyff"}}}],"image":"gcr.io/sandbox-314159/github.com/darthgoon/rg-test@sha256:105ebfc6754a2752a5a686f3db91d7144cdc7ade702581e5c0d0d51e090b3806","imagePullPolicy":"IfNotPresent","name":"api-sha256-1","resources":{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"}},"securityContext":{"capabilities":{"drop":["NET_RAW"]}}}],"securityContext":{"seccompProfile":{"type":"RuntimeDefault"}}}}}}
-  creationTimestamp: "2021-05-30T21:43:00Z"
-  generation: 6
+  name: "rg-test-api-config-8dx2"
+  namespace: "default"
   labels:
-    app: rg-test-api
-    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
-    app.kubernetes.io/name: rg-test-api
-    app.kubernetes.io/version: 32ae8fa85b0f41e246524eca2af1625246a20ee7
-  managedFields:
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:labels:
-          .: {}
-          f:app: {}
-      f:spec:
-        f:progressDeadlineSeconds: {}
-        f:revisionHistoryLimit: {}
-        f:selector:
-          f:matchLabels:
-            .: {}
-            f:app: {}
-        f:strategy:
-          f:rollingUpdate:
-            .: {}
-            f:maxSurge: {}
-            f:maxUnavailable: {}
-          f:type: {}
-        f:template:
-          f:metadata:
-            f:labels:
-              .: {}
-              f:app: {}
-          f:spec:
-            f:containers:
-              k:{"name":"api-sha256-1"}:
-                .: {}
-                f:env:
-                  .: {}
-                  k:{"name":"HOST"}:
-                    .: {}
-                    f:name: {}
-                    f:valueFrom:
-                      .: {}
-                      f:configMapKeyRef:
-                        .: {}
-                        f:key: {}
-                  k:{"name":"PORT"}:
-                    .: {}
-                    f:name: {}
-                    f:valueFrom:
-                      .: {}
-                      f:configMapKeyRef:
-                        .: {}
-                        f:key: {}
-                  k:{"name":"REDIS_HOST"}:
-                    .: {}
-                    f:name: {}
-                    f:valueFrom:
-                      .: {}
-                      f:configMapKeyRef:
-                        .: {}
-                        f:key: {}
-                  k:{"name":"REDIS_PORT"}:
-                    .: {}
-                    f:name: {}
-                    f:valueFrom:
-                      .: {}
-                      f:configMapKeyRef:
-                        .: {}
-                        f:key: {}
-                f:image: {}
-                f:imagePullPolicy: {}
-                f:name: {}
-                f:resources: {}
-                f:terminationMessagePath: {}
-                f:terminationMessagePolicy: {}
-            f:dnsPolicy: {}
-            f:restartPolicy: {}
-            f:schedulerName: {}
-            f:securityContext: {}
-            f:terminationGracePeriodSeconds: {}
-    manager: GoogleCloudConsole
-    operation: Update
-    time: "2021-05-30T21:43:00Z"
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          f:kubectl.kubernetes.io/last-applied-configuration: {}
-      f:spec:
-        f:replicas: {}
-        f:template:
-          f:spec:
-            f:containers:
-              k:{"name":"api-sha256-1"}:
-                f:env:
-                  k:{"name":"HOST"}:
-                    f:valueFrom:
-                      f:configMapKeyRef:
-                        f:name: {}
-                  k:{"name":"PORT"}:
-                    f:valueFrom:
-                      f:configMapKeyRef:
-                        f:name: {}
-                  k:{"name":"REDIS_HOST"}:
-                    f:valueFrom:
-                      f:configMapKeyRef:
-                        f:name: {}
-                  k:{"name":"REDIS_PORT"}:
-                    f:valueFrom:
-                      f:configMapKeyRef:
-                        f:name: {}
-    manager: kubectl-client-side-apply
-    operation: Update
-    time: "2021-05-30T22:39:56Z"
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          f:deployment.kubernetes.io/revision: {}
-      f:status:
-        f:availableReplicas: {}
-        f:conditions:
-          .: {}
-          k:{"type":"Available"}:
-            .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-          k:{"type":"Progressing"}:
-            .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-        f:observedGeneration: {}
-        f:readyReplicas: {}
-        f:replicas: {}
-        f:updatedReplicas: {}
-    manager: kube-controller-manager
-    operation: Update
-    time: "2021-05-30T22:41:38Z"
-  name: rg-test-api
-  namespace: default
-  resourceVersion: "4681240"
-  selfLink: /apis/apps/v1/namespaces/default/deployments/rg-test-api
-  uid: c4c14499-f4d7-4ed5-8622-098a6e0e79aa
+    app: "rg-test-api"
+data:
+  HOST: "0.0.0.0"
+  PORT: "80"
+  REDIS_HOST: "10.41.127.179"
+  REDIS_PORT: "6379"
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "rg-test-api"
+  namespace: "default"
+  labels:
+    app: "rg-test-api"
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
+  replicas: 3
   selector:
     matchLabels:
-      app: rg-test-api
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      app: "rg-test-api"
   template:
     metadata:
-      annotations:
-        gcb-build-id: 9da2a342-8b46-4abb-b6f1-c5b20918f174
-        gcb-trigger-id: 3c9e90c1-c53f-4310-ab36-187237e434fe
-      creationTimestamp: null
       labels:
-        app: rg-test-api
-        app.kubernetes.io/managed-by: gcp-cloud-build-deploy
-        app.kubernetes.io/name: rg-test-api
-        app.kubernetes.io/version: 32ae8fa85b0f41e246524eca2af1625246a20ee7
+        app: "rg-test-api"
     spec:
       containers:
-      - env:
-        - name: HOST
+      - name: "api-sha256-1"
+        image: "gcr.io/sandbox-314159/github.com/darthgoon/rg-test"
+        env:
+        - name: "HOST"
           valueFrom:
             configMapKeyRef:
-              key: HOST
-              name: rg-test-api-config-iyff
-        - name: PORT
+              key: "HOST"
+              name: "rg-test-api-config-8dx2"
+        - name: "PORT"
           valueFrom:
             configMapKeyRef:
-              key: PORT
-              name: rg-test-api-config-iyff
-        - name: REDIS_HOST
+              key: "PORT"
+              name: "rg-test-api-config-8dx2"
+        - name: "REDIS_HOST"
           valueFrom:
             configMapKeyRef:
-              key: REDIS_HOST
-              name: rg-test-api-config-iyff
-        - name: REDIS_PORT
+              key: "REDIS_HOST"
+              name: "rg-test-api-config-8dx2"
+        - name: "REDIS_PORT"
           valueFrom:
             configMapKeyRef:
-              key: REDIS_PORT
-              name: rg-test-api-config-iyff
-        image: gcr.io/sandbox-314159/github.com/darthgoon/rg-test@sha256:105ebfc6754a2752a5a686f3db91d7144cdc7ade702581e5c0d0d51e090b3806
-        imagePullPolicy: IfNotPresent
-        name: api-sha256-1
-        resources:
-          limits:
-            cpu: 500m
-            ephemeral-storage: 1Gi
-            memory: 2Gi
-          requests:
-            cpu: 500m
-            ephemeral-storage: 1Gi
-            memory: 2Gi
-        securityContext:
-          capabilities:
-            drop:
-            - NET_RAW
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext:
-        seccompProfile:
-          type: RuntimeDefault
-      terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2021-05-30T22:39:57Z"
-    lastUpdateTime: "2021-05-30T22:39:57Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2021-05-30T21:43:00Z"
-    lastUpdateTime: "2021-05-30T22:41:38Z"
-    message: ReplicaSet "rg-test-api-98dcbb459" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 6
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
+              key: "REDIS_PORT"
+              name: "rg-test-api-config-8dx2"
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "rg-test-api-hpa-ctxe"
+  namespace: "default"
+  labels:
+    app: "rg-test-api"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "rg-test-api"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
 
