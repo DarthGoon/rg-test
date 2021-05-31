@@ -3,10 +3,10 @@ This is a sha256 hashing service for messages.  You can use this service to get 
 
 ### Usage
 ```
-> curl -get http://34.73.16.103:5000/hash?msg=ThisIsTheWay
+> curl -get http://34.75.71.160:5000/hash?msg=ThisIsTheWay
 3a51322508caf567cf4147de234974cf70cee6cf65711d36a2030df4291b29e3
 
-> curl -get http://34.73.16.103:5000/message?hash=3a51322508caf567cf4147de234974cf70cee6cf65711d36a2030df4291b29e3
+> curl -get http://34.75.71.160:5000/message?hash=3a51322508caf567cf4147de234974cf70cee6cf65711d36a2030df4291b29e3
 ThisIsTheWay
 ```
 ## Architecture
