@@ -10,7 +10,7 @@ This is a sha256 hashing service for messages.  You can use this service to get 
 ThisIsTheWay
 ```
 ## Architecture
-This service is a containerized RESTful [Python 3.9](https://docs.python.org/3.9/) API, which leverages a hash library, and key/value to save corresponding messages and hashes.
+This service is a containerized RESTful [Python 3.9](https://docs.python.org/3.9/) API, which leverages a hash library, and a key/value store to save corresponding messages and hashes.
  - [How does the API work?](https://github.com/DarthGoon/rg-test/blob/master/app/server.py)
  - [How does hashing work?](https://github.com/DarthGoon/rg-test/blob/master/app/hp.py)
 
@@ -35,7 +35,7 @@ The rg-test-api uses docker for its local development environment.  Docker will 
 3. `make run`
 ### Testing
 Test files are found alongside their units in the directory structure.
-(ex. `hp.py` and [hp.test.py](https://github.com/DarthGoon/rg-test/blob/master/app/hp.test.pk)) 
+(ex. `hp.py` and [hp.test.py](https://github.com/DarthGoon/rg-test/blob/master/app/hp.test.py)) 
 Test files run inside the container environment, by executing- 
 `make test` 
 ### Deployment

@@ -34,8 +34,6 @@ using POST requests payloads), at 512MB
 
 """
 
-# imported text compression utilities
-
 
 class HashProvider():
 
