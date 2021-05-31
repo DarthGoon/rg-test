@@ -35,6 +35,10 @@ The rg-test-api uses docker for its local development environment.  Docker will 
 3. `make run`
 ### Testing
 Test files are found alongside their units in the directory structure.
-(ex. `hp.py` and [hp.test.py](https://github.com/DarthGoon/rg-test/blob/master/app/hp.test.pk))
-Test files run inside the container environment, by executing-
-`make test`
+(ex. `hp.py` and [hp.test.py](https://github.com/DarthGoon/rg-test/blob/master/app/hp.test.pk)) 
+Test files run inside the container environment, by executing- 
+`make test` 
+### Deployment
+Deployment involves building a new version of a service container, and pushing it up to a gCloud [Container Registry](https://cloud.google.com/container-registry/docs/quickstart) (requires credentials)
+1. `docker build -t gcr.io/sandbox-314159/github.com/darthgoon/rg-test .`
+2. `docker push gcr.io/sandbox-314159/github.com/darthgoon/rg-test`
