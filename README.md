@@ -41,4 +41,6 @@ Test files run inside the container environment, by executing-
 ### Deployment
 Deployment involves building a new version of a service container, and pushing it up to a gCloud [Container Registry](https://cloud.google.com/container-registry/docs/quickstart) (requires credentials)
 1. `docker build -t gcr.io/sandbox-314159/github.com/darthgoon/rg-test .`
-2. `docker push gcr.io/sandbox-314159/github.com/darthgoon/rg-test`
+2. `docker push gcr.io/sandbox-314159/github.com/darthgoon/rg-test`  
+
+Production environment variables are stored as "secrets" in the production deployment workflow.
