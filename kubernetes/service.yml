@@ -1,18 +1,38 @@
----
-apiVersion: "v1"
-kind: "Service"
+apiVersion: v1
+kind: Service
 metadata:
-  name: "rg-test-api-service"
-  namespace: "default"
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+    gcb-build-id: 33649afb-0ab8-41b3-a077-6323ea490cd9
+    gcb-trigger-id: 3c9e90c1-c53f-4310-ab36-187237e434fe
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"cloud.google.com/neg":"{\"ingress\":true}","gcb-build-id":"33649afb-0ab8-41b3-a077-6323ea490cd9","gcb-trigger-id":"3c9e90c1-c53f-4310-ab36-187237e434fe"},"finalizers":["service.kubernetes.io/load-balancer-cleanup"],"labels":{"app":"rg-test-api","app.kubernetes.io/managed-by":"gcp-cloud-build-deploy","app.kubernetes.io/name":"rg-test-api","app.kubernetes.io/version":"c8ebd693f29a91fb5e7720cbb68e46ba7b9be503"},"managedFields":[{"apiVersion":"v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:app":{}}},"f:spec":{"f:externalTrafficPolicy":{},"f:ports":{".":{},"k:{\"port\":80,\"protocol\":\"TCP\"}":{".":{},"f:port":{},"f:protocol":{},"f:targetPort":{}}},"f:selector":{".":{},"f:app":{}},"f:sessionAffinity":{},"f:type":{}}},"manager":"GoogleCloudConsole","operation":"Update","time":"2021-05-30T21:49:05Z"},{"apiVersion":"v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:finalizers":{".":{},"v:\"service.kubernetes.io/load-balancer-cleanup\"":{}}},"f:status":{"f:loadBalancer":{"f:ingress":{}}}},"manager":"kube-controller-manager","operation":"Update","time":"2021-05-30T21:49:49Z"}],"name":"rg-test-api-service","namespace":"default"},"spec":{"clusterIP":"10.16.131.81","externalTrafficPolicy":"Cluster","ports":[{"nodePort":30906,"port":80,"protocol":"TCP","targetPort":80}],"selector":{"app":"rg-test-api"},"sessionAffinity":"None","type":"LoadBalancer"}}
+  creationTimestamp: "2021-05-30T21:49:05Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
   labels:
-    app: "rg-test-api"
+    app: rg-test-api
+    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
+    app.kubernetes.io/name: rg-test-api
+    app.kubernetes.io/version: c8ebd693f29a91fb5e7720cbb68e46ba7b9be503
+  name: rg-test-api-service
+  namespace: default
+  resourceVersion: "4755053"
+  selfLink: /api/v1/namespaces/default/services/rg-test-api-service
+  uid: ce5ffd00-a19e-4ba8-9121-db0e1d44268b
 spec:
+  clusterIP: 10.16.131.81
+  externalTrafficPolicy: Cluster
   ports:
-  - protocol: "TCP"
+  - nodePort: 30906
     port: 80
+    protocol: TCP
     targetPort: 80
   selector:
-    app: "rg-test-api"
-  type: "LoadBalancer"
-  loadBalancerIP: "34.75.71.160"
-
+    app: rg-test-api
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.75.71.160
